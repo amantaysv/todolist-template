@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useState } from 'react'
 import { AiOutlineArrowDown } from 'react-icons/ai'
 import { TodoItem } from './TodoItem'
@@ -87,7 +86,7 @@ export const TodoList = ({ todos, searchTodo, sortButton }) => {
           }
         })
         .map((todo) => (
-          <TodoItem key={todo.id} todos={todos} searchTodo={searchTodo} {...todo} />
+          <TodoItem key={todo.id} searchTodo={searchTodo} {...todo} />
         ))}
     </ul>
   )

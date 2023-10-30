@@ -11,62 +11,7 @@ import {
 import { FaTrashRestoreAlt } from 'react-icons/fa'
 import { RiDeleteBin2Fill } from 'react-icons/ri'
 
-export const TodoItem = ({
-  id,
-  isCompleted,
-  isFavorite,
-  todoName,
-  searchTodo,
-  todos,
-  isDeleted,
-}) => {
-  const completeHandler = () => {
-    const updatedTodos = todos.map((todo) => {
-      if (id === todo.id) {
-        return {
-          ...todo,
-          isCompleted: !todo.isCompleted,
-          isFavorite: false,
-        }
-      }
-      return todo
-    })
-
-    // setTodos(updatedTodos)
-  }
-
-  const favoriteHandler = () => {
-    const updatedTodos = todos.map((todo) => {
-      if (id === todo.id) {
-        return {
-          ...todo,
-          isFavorite: !todo.isFavorite,
-        }
-      }
-      return todo
-    })
-
-    // setTodos(updatedTodos)
-  }
-
-  const deleteHandler = () => {
-    const updatedTodos = todos.map((todo) => {
-      if (id === todo.id) {
-        return {
-          ...todo,
-          isDeleted: !todo.isDeleted,
-        }
-      }
-      return todo
-    })
-    // setTodos(updatedTodos)
-  }
-
-  const deleteForeverHandler = () => {
-    const updatedTodos = todos.filter((todo) => todo.id !== id)
-    // setTodos(updatedTodos)
-  }
-
+export const TodoItem = ({ id, isCompleted, isFavorite, todoName, searchTodo, isDeleted }) => {
   return (
     <li className='flex justify-between items-center'>
       <span
@@ -81,22 +26,22 @@ export const TodoItem = ({
       <div className='flex gap-1'>
         {isDeleted ? (
           <>
-            <button className='text-3xl text-green-400' onClick={deleteHandler}>
+            <button className='text-3xl text-green-400'>
               <FaTrashRestoreAlt />
             </button>
-            <button className='text-3xl text-red-500 group' onClick={deleteForeverHandler}>
+            <button className='text-3xl text-red-500 group'>
               <RiDeleteBin2Fill />
             </button>
           </>
         ) : (
           <>
-            <button className='text-3xl text-green-500' onClick={completeHandler}>
+            <button className='text-3xl text-green-500'>
               {isCompleted ? <AiFillCheckCircle /> : <AiOutlineCheckCircle />}
             </button>
-            <button className='text-3xl text-yellow-400' onClick={favoriteHandler}>
+            <button className='text-3xl text-yellow-400'>
               {isFavorite ? <AiFillStar /> : <AiOutlineStar />}
             </button>
-            <button className='text-3xl text-red-500 group' onClick={deleteHandler}>
+            <button className='text-3xl text-red-500 group'>
               {isDeleted ? <AiFillDelete /> : <AiOutlineDelete />}
             </button>
           </>

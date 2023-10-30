@@ -15,7 +15,7 @@ export const App = () => {
       <Header todos={todos} sortButton={sortButton} />
       <TodoList todos={todos} searchTodo={searchTodo} sortButton={sortButton} />
       <EmptyState todos={todos} sortButton={sortButton} />
-      <AddTodoForm todos={todos} errorState={errorState} />
+      <AddTodoForm errorState={errorState} />
       <p className='pl-4 pt-2 text-red-500'>{errorState}</p>
     </div>
   )
