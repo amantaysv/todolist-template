@@ -18,7 +18,6 @@ export const TodoItem = ({
   todoName,
   searchTodo,
   todos,
-  setTodos,
   isDeleted,
 }) => {
   const completeHandler = () => {
@@ -33,7 +32,7 @@ export const TodoItem = ({
       return todo
     })
 
-    setTodos(updatedTodos)
+    // setTodos(updatedTodos)
   }
 
   const favoriteHandler = () => {
@@ -47,7 +46,7 @@ export const TodoItem = ({
       return todo
     })
 
-    setTodos(updatedTodos)
+    // setTodos(updatedTodos)
   }
 
   const deleteHandler = () => {
@@ -60,12 +59,12 @@ export const TodoItem = ({
       }
       return todo
     })
-    setTodos(updatedTodos)
+    // setTodos(updatedTodos)
   }
 
   const deleteForeverHandler = () => {
     const updatedTodos = todos.filter((todo) => todo.id !== id)
-    setTodos(updatedTodos)
+    // setTodos(updatedTodos)
   }
 
   return (

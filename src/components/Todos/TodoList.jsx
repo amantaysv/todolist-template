@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react'
-import { TodoItem } from './TodoItem'
 import { AiOutlineArrowDown } from 'react-icons/ai'
+import { TodoItem } from './TodoItem'
 
-export const TodoList = ({ todos, setTodos, searchTodo, sortButton }) => {
+export const TodoList = ({ todos, searchTodo, sortButton }) => {
   const [sortBy, setSortBy] = useState('date')
   const [order, setOrder] = useState('ASC')
 
@@ -21,14 +21,6 @@ export const TodoList = ({ todos, setTodos, searchTodo, sortButton }) => {
     } else {
       setOrder('ASC')
     }
-  }
-
-  const deleteSelectedHandle = () => {
-    const selected = [1698072992507, 1698073030264]
-
-    selected.map((selectedId) => {
-      setTodos((prev) => prev.filter((todo) => todo.id !== selectedId))
-    })
   }
 
   return (
@@ -60,9 +52,6 @@ export const TodoList = ({ todos, setTodos, searchTodo, sortButton }) => {
             onClick={() => sortByHandler('favorite')}
           >
             <AiOutlineArrowDown />
-          </span>{' '}
-          <span className='pl-10' onClick={deleteSelectedHandle}>
-            x
           </span>{' '}
         </div>
       </li>
@@ -98,13 +87,7 @@ export const TodoList = ({ todos, setTodos, searchTodo, sortButton }) => {
           }
         })
         .map((todo) => (
-          <TodoItem
-            key={todo.id}
-            todos={todos}
-            setTodos={setTodos}
-            searchTodo={searchTodo}
-            {...todo}
-          />
+          <TodoItem key={todo.id} todos={todos} searchTodo={searchTodo} {...todo} />
         ))}
     </ul>
   )
